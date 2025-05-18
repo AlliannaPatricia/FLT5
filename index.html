@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finals Lab Task 5 - SQL Views, Stored Procedures & Functions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="sakura-falling"></canvas>
+  <main class="container">
+    <h1>Finals Lab Task 5 - Using SQL Views, Stored Procedures, and Stored Functions</h1>
+    <p>In this lab activity, I worked with SQL Views, Stored Procedures, and Stored Functions in MySQL to create reusable database objects and automate specific queries and updates. The task was performed on the <code>inventory</code> database which contains tables for <code>Products</code>, <code>vendors</code>, and <code>vendorsACode</code>. This task focused on data filtering, aggregation, updating, and creating custom functions with parameters.</p>
 
+    <section>
+      <h2>Steps I Followed</h2>
+      <ul>
+        <li><strong>Created the database and tables:</strong>
+          <ul>
+            <li>Used <code>CREATE DATABASE inventory;</code> to make the database.</li>
+            <li>Used <code>USE inventory;</code> to select the database.</li>
+            <li>Created tables <code>Products</code>, <code>vendors</code>, and <code>vendorsACode</code> with the required columns and constraints.</li>
+            <li>Inserted sample data into the tables for testing.</li>
+          </ul>
+        </li>
+        <li><strong>Created Views:</strong>
+          <ul>
+            <li>Created a view <code>products_from_2002</code> to display vendor codes, vendor names, product descriptions, and product in-date for all products with <code>p_indate</code> from 2002 onwards.</li>
+            <li>Created a view to list all products with prices between 100 and 150.</li>
+            <li>Created a view to compute the total price of all products (<code>P_ONHAND × P_PRICE</code>) sold by specific vendors (<code>v_codes</code> 21344, 23119, and 24288).</li>
+          </ul>
+        </li>
+        <li><strong>Created Stored Procedure:</strong>
+          <ul>
+            <li>Developed a stored procedure to update the vendor name from 'Bryson,Inc.' to 'Bryson and Co.' based on a parameter.</li>
+          </ul>
+        </li>
+        <li><strong>Created Stored Function:</strong>
+          <ul>
+            <li>Created a stored function <code>get_products_by_vendor</code> that takes two parameters (<code>v_code</code> and <code>v_state</code>) and returns all product descriptions and prices for the specified vendor code and state.</li>
+          </ul>
+        </li>
+        <li><strong>Called and tested all SQL objects:</strong>
+          <ul>
+            <li>Used <code>SELECT</code> to test views.</li>
+            <li>Used <code>CALL</code> to run the stored procedure and verify the update.</li>
+            <li>Used <code>SELECT</code> to call the stored function and display results.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="screenshots">
+      <h2>Screenshot of Task 1 - View products from 2002 onwards</h2>
+      <img src="images/step1.png" alt="View products from 2002 onwards" />
+
+      <h2>Screenshot of Task 2 - Products priced between 100 and 150</h2>
+      <img src="images/step2.png" alt="Products priced between 100 and 150" />
+
+      <h2>Screenshot of Task 3 - View total price of products by specific vendors</h2>
+      <img src="images/step3.png" alt="Total price of products by specific vendors" />
+
+      <h2>Screenshot of Task 4 - Stored Procedure updating vendor name</h2>
+      <img src="images/step4.png" alt="Stored Procedure updating vendor name" />
+
+      <h2>Screenshot of Task 5 - Stored Function returning product descriptions and prices</h2>
+      <img src="images/step5.png" alt="Stored Function returning product descriptions and prices" />
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/gh/lgarron/sakura/sakura.js"></script>
+  <script>
+    new Sakura('body', {
+      colors: [
+        {
+          gradientColorStart: 'rgba(255, 183, 197, 0.9)',
+          gradientColorEnd: 'rgba(255, 197, 208, 0.9)',
+          gradientColorDegree: 120
+        }
+      ],
+      maxSize: 14,
+      minSize: 9,
+      fallSpeed: 1.2
+    });
+  </script>
+</body>
+</html>
