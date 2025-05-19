@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Finals Lab Task 5 - Using SQL Views and Stored Procedures and Stored Functions</title>
+  <title>Finals Lab Task 5 - SQL Views and Procedures</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet" />
@@ -46,6 +46,13 @@
     ul {
       padding-left: 1.5rem;
       line-height: 1.6;
+    }
+
+    code {
+      background-color: #f8d7da;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
     }
 
     .screenshots img {
@@ -91,65 +98,71 @@
 
     <section>
       <p>
-        In this lab activity, I worked with SQL Views, Stored Procedures, and Stored Functions in MySQL to create reusable database objects and automate specific queries and updates. The task was performed on the <code>inventory</code> database which contains tables for <code>Products</code>, <code>vendors</code>, and <code>vendorsACode</code>. This task focused on data filtering, aggregation, updating, and creating custom functions with parameters.
+        In this lab activity, I worked with <strong>SQL Views, Stored Procedures, and Stored Functions</strong> in MySQL to create reusable database objects and automate specific queries and updates. The task was performed on the <code>inventory</code> database, which contains tables for <code>Products</code>, <code>vendors</code>, and <code>vendorsACode</code>. This task focused on data filtering, aggregation, updating, and creating custom functions with parameters.
       </p>
 
+      <h2>Steps Followed</h2>
       <ul>
         <li><strong>Created the database and tables</strong>
           <ul>
-            <li>Used <code>CREATE DATABASE inventory;</code> to make the database.</li>
-            <li>Used <code>USE inventory;</code> to select the database.</li>
-            <li>Created tables <code>Products</code>, <code>vendors</code>, and <code>vendorsACode</code> with required columns and constraints.</li>
-            <li>Inserted sample data into the tables for testing.</li>
+            <li>Used <code>CREATE DATABASE inventory;</code></li>
+            <li>Used <code>USE inventory;</code></li>
+            <li>Created tables <code>Products</code>, <code>vendors</code>, and <code>vendorsACode</code> with required columns and constraints</li>
+            <li>Inserted sample data into the tables</li>
           </ul>
         </li>
+
         <li><strong>Created Views</strong>
           <ul>
-            <li>View <code>products_from_2002</code> to display vendor codes, vendor names, product descriptions, and product in-date for all products with <code>p_indate</code> from 2002 onwards.</li>
-            <li>View to list all products with prices between 100 and 150.</li>
-            <li>View to compute total price of all products (<code>P_ONHAND x P_PRICE</code>) sold by specific vendors (v_codes 21344, 23119, and 24288).</li>
+            <li><code>products_from_2002</code> – displays vendor codes, vendor names, product descriptions, and product in-date (from 2002 onwards)</li>
+            <li>View of products priced between 100 and 150</li>
+            <li>View calculating total price of products (<code>P_ONHAND × P_PRICE</code>) for vendors <code>21344</code>, <code>23119</code>, and <code>24288</code></li>
           </ul>
         </li>
+
         <li><strong>Created Stored Procedure</strong>
           <ul>
-            <li>Procedure to update vendor name from 'Bryson,Inc.' to 'Bryson and Co.' based on a parameter.</li>
+            <li>Updates the vendor name from <code>'Bryson,Inc.'</code> to <code>'Bryson and Co.'</code> based on a parameter</li>
           </ul>
         </li>
+
         <li><strong>Created Stored Function</strong>
           <ul>
-            <li>Function <code>get_products_by_vendor</code> taking parameters (<code>v_code</code>, <code>v_state</code>) and returning product descriptions and prices for the specified vendor code and state.</li>
+            <li><code>get_products_by_vendor(v_code, v_state)</code> returns product descriptions and prices</li>
           </ul>
         </li>
-        <li><strong>Called and tested all SQL objects</strong>
+
+        <li><strong>Tested SQL Objects</strong>
           <ul>
-            <li>Used <code>SELECT</code> to test views.</li>
-            <li>Used <code>CALL</code> to run the stored procedure and verify the update.</li>
-            <li>Used <code>SELECT</code> to call the stored function and display results.</li>
+            <li>Used <code>SELECT</code> to test views</li>
+            <li>Used <code>CALL</code> to test the stored procedure</li>
+            <li>Used <code>SELECT</code> to test the stored function</li>
           </ul>
         </li>
       </ul>
     </section>
 
     <section class="screenshots">
-      <h2>Here's the screenshot of my output for Task 1 - View products from 2002 onwards</h2>
-      <img src="images/step1.png" alt="View products from 2002 onwards" />
+      <h2>Output Screenshots</h2>
 
-      <h2>Here's the screenshot of my output for Task 2 - Products priced between 100 and 150</h2>
-      <img src="images/step2.png" alt="Products priced between 100 and 150" />
+      <h3>Task 1 – View products from 2002 onwards</h3>
+      <img src="images/step1.png" alt="View from 2002 Screenshot" />
 
-      <h2>Here's the screenshot of my output for Task 3 - View total price of products by specific vendors</h2>
-      <img src="images/step3.png" alt="View total price by vendors" />
+      <h3>Task 2 – Products priced between 100 and 150</h3>
+      <img src="images/step2.png" alt="Price Range View Screenshot" />
 
-      <h2>Here's the screenshot of my output for Task 4 - Stored Procedure updating vendor name</h2>
-      <img src="images/step4.png" alt="Stored procedure update vendor name" />
+      <h3>Task 3 – Total price of products by specific vendors</h3>
+      <img src="images/step3.png" alt="Total Price View Screenshot" />
 
-      <h2>Here's the screenshot of my output for Task 5 - Stored Function returning product descriptions and prices</h2>
-      <img src="images/step5.png" alt="Stored function results" />
+      <h3>Task 4 – Stored Procedure: Update Vendor Name</h3>
+      <img src="images/step4.png" alt="Stored Procedure Screenshot" />
+
+      <h3>Task 5 – Stored Function: Get Products by Vendor</h3>
+      <img src="images/step5.png" alt="Stored Function Screenshot" />
     </section>
   </div>
 
   <script>
-    // Sakura falling petals canvas setup
     const canvas = document.getElementById('falling-petals-canvas');
     const ctx = canvas.getContext('2d');
     let petals = [];
@@ -206,11 +219,14 @@
     initPetals();
     animatePetals();
 
-    // Mouse trail petals (scroll-independent)
     document.addEventListener('mousemove', function(e) {
       const trail = document.createElement('div');
       trail.className = 'petal-trail';
       trail.style.left = e.pageX + 'px';
       trail.style.top = e.pageY + window.scrollY + 'px';
       document.body.appendChild(trail);
-      setTimeout(()
+      setTimeout(() => trail.remove(), 1500);
+    });
+  </script>
+</body>
+</html>
